@@ -21,6 +21,5 @@
             </c:forEach>
         </ul>
         
-        <a href="add">ajouter un programmeur</a>
     </body>
 </html>

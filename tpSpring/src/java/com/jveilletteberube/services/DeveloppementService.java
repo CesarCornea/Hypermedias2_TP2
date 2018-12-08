@@ -23,9 +23,10 @@ public class DeveloppementService {
     }
     
     
-    public boolean addProgrammeur(Programmeur programmeur) {
-        return dao.create(programmeur);
-    }
+    /*public double getTaux(String monnaie) {
+        double taux = dao.findById(monnaie).getValeur();
+        return taux;
+    }*/
 
     public List<String> getProgrammeursListe() {
         List<String> liste = new LinkedList<>();

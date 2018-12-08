@@ -6,17 +6,13 @@
 package com.jveilletteberube.controleur;
 
 import com.jveilletteberube.services.DeveloppementService;
-import java.io.IOException;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.View;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -48,6 +44,7 @@ public class DeveloppementControleur {
         model.addAttribute("programmeur", p);
         return "profil";
     }
+<<<<<<< HEAD
     
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(ModelMap model) throws IOException
@@ -103,4 +100,6 @@ public class DeveloppementControleur {
         return "convert";
     }*/
 >>>>>>> parent of 12f8da0... Page de profil faite
+=======
+>>>>>>> parent of ade45fe... fusion manuelle d'ajout programmeur et backUp
 }
