@@ -22,18 +22,25 @@ public class DeveloppementService {
         this.dao = dao;
     }
     
+    public Programmeur getProgrammeur(String courriel){
+        Programmeur p = dao.findByCourriel(courriel);
+        return p;
+    }
     
+    public boolean addProgrammeur(Programmeur programmeur) {
+        return dao.create(programmeur);
+    }
     /*public double getTaux(String monnaie) {
         double taux = dao.findById(monnaie).getValeur();
         return taux;
     }*/
 
-    public List<String> getProgrammeursListe() {
-        List<String> liste = new LinkedList<>();
+     public List<Programmeur> getProgrammeursListe() {
+        List<Programmeur> liste = new LinkedList<>();
         ListIterator<Programmeur> iterateur = dao.findAll().listIterator();
         
         while (iterateur.hasNext())
-            liste.add(iterateur.next().getNom());        
+            liste.add(iterateur.next());      
         return liste;
     }
 }

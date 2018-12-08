@@ -5,14 +5,19 @@
  */
 package com.jveilletteberube.controleur;
 
+import com.jveilletteberube.model.Programmeur;
 import com.jveilletteberube.services.DeveloppementService;
+import java.io.IOException;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.View;
+import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -29,15 +34,13 @@ public class DeveloppementControleur {
     //@ResponseBody
     @RequestMapping("/")
     public String welcome(ModelMap model) {
-        //List<String> liste = this.developpementService.getProgrammeursListe();
+        List<Programmeur> liste = this.developpementService.getProgrammeursListe();
         model.addAttribute("bienvenue", "Bienvenue au service de catalogue de programmeurs");
-        //model.addAttribute("programmeurs", liste);
+        model.addAttribute("programmeurs", liste);
         return "home";
     }
 
     //@ResponseBody
-<<<<<<< HEAD
-<<<<<<< HEAD
     @RequestMapping(method = RequestMethod.GET, value="/profil", params={"u"})
     public String afficherProfil(@RequestParam("u") String courriel, ModelMap model) {
         Programmeur p = this.developpementService.getProgrammeur(courriel);
@@ -45,7 +48,6 @@ public class DeveloppementControleur {
         model.addAttribute("programmeur", p);
         return "profil";
     }
-<<<<<<< HEAD
     
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(ModelMap model) throws IOException
@@ -94,18 +96,4 @@ public class DeveloppementControleur {
             this.langages = langages;
         }
     }
-=======
-=======
->>>>>>> parent of 12f8da0... Page de profil faite
-    /*@RequestMapping(method = RequestMethod.GET, value="/", params={"nom"})
-    public String afficher(@RequestParam("nom") String nom, ModelMap model) {
-        model.addAttribute("message", "1 "+nom+" vaut "+converterService.getTaux(nom)+" $CAN");
-        return "convert";
-    }*/
-<<<<<<< HEAD
->>>>>>> parent of 12f8da0... Page de profil faite
-=======
->>>>>>> parent of ade45fe... fusion manuelle d'ajout programmeur et backUp
-=======
->>>>>>> parent of 12f8da0... Page de profil faite
 }
