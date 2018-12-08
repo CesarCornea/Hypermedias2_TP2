@@ -62,7 +62,10 @@ public class DeveloppementControleur {
         programmeur.setCourriel(form.getCourriel());
         programmeur.setNom(form.getNom());
         programmeur.setLangages(form.getLangages());
-        this.developpementService.addProgrammeur(programmeur);
+        
+        if(programmeur.getCourriel() != "" && programmeur.getNom() != "" && programmeur.getLangages() != ""){
+            this.developpementService.addProgrammeur(programmeur);
+        }
 
         return new RedirectView("/", true, false);
     }
