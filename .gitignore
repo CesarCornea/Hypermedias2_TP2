@@ -1,4 +1,6 @@
 
 *.jar
+
 *.xml
+
 *.properties
