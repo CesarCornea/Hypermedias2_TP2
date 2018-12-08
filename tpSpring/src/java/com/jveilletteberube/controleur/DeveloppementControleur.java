@@ -39,6 +39,15 @@ public class DeveloppementControleur {
         model.addAttribute("programmeurs", liste);
         return "home";
     }
+    
+    @RequestMapping(method = RequestMethod.GET, value="/", params={"recherche"})
+    public String welcomeSearch(@RequestParam("recherche") String langages, ModelMap model) {
+        List<Programmeur> liste = this.developpementService.getProgrammeursListe(langages);
+        if(model.containsKey("recherche")){ System.out.println("SUBMIT"); }
+        model.addAttribute("bienvenue", "Bienvenue au service de catalogue de programmeurs");
+        model.addAttribute("programmeurs", liste);
+        return "home";
+    }
 
     //@ResponseBody
     @RequestMapping(method = RequestMethod.GET, value="/profil", params={"u"})
