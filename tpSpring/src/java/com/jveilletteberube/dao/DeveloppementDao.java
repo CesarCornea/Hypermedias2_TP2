@@ -42,6 +42,11 @@ public class DeveloppementDao extends SqlDao<Programmeur> {
         try {
             PreparedStatement stm = cnx.prepareStatement("INSERT INTO programmeur (`COURRIEL`, `NOM`, `LANGAGES`) "
                                     + " VALUES (?, ?, ?)");
+            if(x.getCourriel()==null || "".equals(x.getCourriel().trim()) || 
+               x.getNom()     ==null || "".equals(x.getNom().trim()) ||
+               x.getLangages()==null || "".equals(x.getLangages().trim())){
+                return false;
+            }
             stm.setString(1, x.getCourriel());
             stm.setString(2, x.getNom());
             stm.setString(3, x.getLangages());
@@ -92,7 +97,27 @@ public class DeveloppementDao extends SqlDao<Programmeur> {
         }
         return liste;
     }
-
+    
+    public List<Programmeur> findAllByLangages(String langages) {
+        List<Programmeur> liste = new LinkedList<>();
+        Programmeur programmeur;
+        try {
+            PreparedStatement stm = cnx.prepareStatement("SELECT * FROM programmeur WHERE LANGAGES LIKE ?");
+            stm.setString(1, "%"+langages+"%");
+            ResultSet res = stm.executeQuery();
+            while (res.next()){
+                programmeur = new Programmeur();
+                programmeur.setCourriel(res.getString("COURRIEL"));
+                programmeur.setNom(res.getString("NOM"));
+                programmeur.setLangages(res.getString("LANGAGES"));
+                liste.add(programmeur);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DeveloppementDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
+    
     @Override
     public boolean delete(Programmeur x) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

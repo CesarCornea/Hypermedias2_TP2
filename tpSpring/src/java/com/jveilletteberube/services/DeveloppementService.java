@@ -36,6 +36,15 @@ public class DeveloppementService {
         return liste;
     }
     
+    public List<Programmeur> getProgrammeursListe(String langages) {
+        List<Programmeur> liste = new LinkedList<>();
+        ListIterator<Programmeur> iterateur = dao.findAllByLangages(langages).listIterator();
+        
+        while (iterateur.hasNext())
+            liste.add(iterateur.next());        
+        return liste;
+    }
+    
     public Programmeur getProgrammeur(String courriel){
         Programmeur p = dao.findByCourriel(courriel);
         return p;
