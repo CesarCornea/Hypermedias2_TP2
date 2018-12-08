@@ -29,9 +29,9 @@ public class DeveloppementControleur {
     //@ResponseBody
     @RequestMapping("/")
     public String welcome(ModelMap model) {
-        List<String> liste = this.developpementService.getProgrammeursListe();
+        //List<String> liste = this.developpementService.getProgrammeursListe();
         model.addAttribute("bienvenue", "Bienvenue au service de catalogue de programmeurs");
-        model.addAttribute("programmeurs", liste);
+        //model.addAttribute("programmeurs", liste);
         return "home";
     }
 
