@@ -19,7 +19,7 @@
     <body>
         <h3>ajouter un nouveau programmeur :</h3>
         <form:form method="post" modelAttribute="form">
-            <form:label path="courriel">Courriel</form:label><br>
+            <form:label type="email" path="courriel">Courriel</form:label><br>
             <form:input path="courriel"></form:input><br>
             <form:label path="nom">Nom</form:label><br />
             <form:input path="nom"/><br />
