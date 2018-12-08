@@ -5,6 +5,7 @@
  */
 package com.jveilletteberube.controleur;
 
+import com.jveilletteberube.model.Programmeur;
 import com.jveilletteberube.services.DeveloppementService;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -29,16 +30,18 @@ public class DeveloppementControleur {
     //@ResponseBody
     @RequestMapping("/")
     public String welcome(ModelMap model) {
-        //List<String> liste = this.developpementService.getProgrammeursListe();
+        List<Programmeur> liste = this.developpementService.getProgrammeursListe();
         model.addAttribute("bienvenue", "Bienvenue au service de catalogue de programmeurs");
-        //model.addAttribute("programmeurs", liste);
+        model.addAttribute("programmeurs", liste);
         return "home";
     }
 
     //@ResponseBody
-    /*@RequestMapping(method = RequestMethod.GET, value="/", params={"nom"})
-    public String afficher(@RequestParam("nom") String nom, ModelMap model) {
-        model.addAttribute("message", "1 "+nom+" vaut "+converterService.getTaux(nom)+" $CAN");
-        return "convert";
-    }*/
+    @RequestMapping(method = RequestMethod.GET, value="/profil", params={"u"})
+    public String afficherProfil(@RequestParam("u") String courriel, ModelMap model) {
+        Programmeur p = this.developpementService.getProgrammeur(courriel);
+        if(p==null){ return "home"; }
+        model.addAttribute("programmeur", p);
+        return "profil";
+    }
 }

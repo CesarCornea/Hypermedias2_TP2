@@ -10,14 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>TP2 Spring | Home</title>
     </head>
     <body>
         <h1>${bienvenue}</h1>
         <h3>Liste des programmeurs :</h3>
         <ul>
             <c:forEach items="${programmeurs}" var="unProgrammeur">
-                <li><a href="?nom=${unProgrammeur}"><c:out value="${unProgrammeur}" /></a></li>
+                <li><a href="profil?u=${unProgrammeur.courriel}"><c:out value="${unProgrammeur.nom}" /></a></li>
             </c:forEach>
         </ul>
         
