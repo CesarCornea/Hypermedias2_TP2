@@ -5,7 +5,6 @@
  */
 package com.jveilletteberube.controleur;
 
-import com.jveilletteberube.model.Programmeur;
 import com.jveilletteberube.services.DeveloppementService;
 import java.io.IOException;
 import java.util.List;
@@ -34,13 +33,14 @@ public class DeveloppementControleur {
     //@ResponseBody
     @RequestMapping("/")
     public String welcome(ModelMap model) {
-        List<Programmeur> liste = this.developpementService.getProgrammeursListe();
+        //List<String> liste = this.developpementService.getProgrammeursListe();
         model.addAttribute("bienvenue", "Bienvenue au service de catalogue de programmeurs");
-        model.addAttribute("programmeurs", liste);
+        //model.addAttribute("programmeurs", liste);
         return "home";
     }
 
     //@ResponseBody
+<<<<<<< HEAD
     @RequestMapping(method = RequestMethod.GET, value="/profil", params={"u"})
     public String afficherProfil(@RequestParam("u") String courriel, ModelMap model) {
         Programmeur p = this.developpementService.getProgrammeur(courriel);
@@ -96,4 +96,11 @@ public class DeveloppementControleur {
             this.langages = langages;
         }
     }
+=======
+    /*@RequestMapping(method = RequestMethod.GET, value="/", params={"nom"})
+    public String afficher(@RequestParam("nom") String nom, ModelMap model) {
+        model.addAttribute("message", "1 "+nom+" vaut "+converterService.getTaux(nom)+" $CAN");
+        return "convert";
+    }*/
+>>>>>>> parent of 12f8da0... Page de profil faite
 }

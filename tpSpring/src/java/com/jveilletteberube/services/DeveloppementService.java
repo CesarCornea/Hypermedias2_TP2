@@ -27,17 +27,12 @@ public class DeveloppementService {
         return dao.create(programmeur);
     }
 
-    public List<Programmeur> getProgrammeursListe() {
-        List<Programmeur> liste = new LinkedList<>();
+    public List<String> getProgrammeursListe() {
+        List<String> liste = new LinkedList<>();
         ListIterator<Programmeur> iterateur = dao.findAll().listIterator();
         
         while (iterateur.hasNext())
-            liste.add(iterateur.next());        
+            liste.add(iterateur.next().getNom());        
         return liste;
-    }
-    
-    public Programmeur getProgrammeur(String courriel){
-        Programmeur p = dao.findByCourriel(courriel);
-        return p;
     }
 }
