@@ -14,6 +14,12 @@ public class Programmeur {
     private String nom;
     private String langages;
 
+    public Programmeur(){}
+    
+    public Programmeur(String courriel, String nom, String langages){
+        this.courriel = courriel; this.nom = nom; this.langages = langages;
+    }
+    
     public String getCourriel() {
         return courriel;
     }
