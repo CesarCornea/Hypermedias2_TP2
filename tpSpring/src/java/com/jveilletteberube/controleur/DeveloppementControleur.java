@@ -63,7 +63,7 @@ public class DeveloppementControleur {
         programmeur.setNom(form.getNom());
         programmeur.setLangages(form.getLangages());
         
-        if(programmeur.getCourriel() != "" && programmeur.getNom() != "" && programmeur.getLangages() != ""){
+        if(!"".equals(programmeur.getCourriel()) && programmeur.getNom() != "" && programmeur.getLangages() != ""){
             this.developpementService.addProgrammeur(programmeur);
         }
 
