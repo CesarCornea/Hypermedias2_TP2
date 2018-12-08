@@ -37,6 +37,7 @@ public class DeveloppementControleur {
 
     //@ResponseBody
 <<<<<<< HEAD
+<<<<<<< HEAD
     @RequestMapping(method = RequestMethod.GET, value="/profil", params={"u"})
     public String afficherProfil(@RequestParam("u") String courriel, ModelMap model) {
         Programmeur p = this.developpementService.getProgrammeur(courriel);
@@ -94,12 +95,17 @@ public class DeveloppementControleur {
         }
     }
 =======
+=======
+>>>>>>> parent of 12f8da0... Page de profil faite
     /*@RequestMapping(method = RequestMethod.GET, value="/", params={"nom"})
     public String afficher(@RequestParam("nom") String nom, ModelMap model) {
         model.addAttribute("message", "1 "+nom+" vaut "+converterService.getTaux(nom)+" $CAN");
         return "convert";
     }*/
+<<<<<<< HEAD
 >>>>>>> parent of 12f8da0... Page de profil faite
 =======
 >>>>>>> parent of ade45fe... fusion manuelle d'ajout programmeur et backUp
+=======
+>>>>>>> parent of 12f8da0... Page de profil faite
 }
